@@ -1,0 +1,8 @@
+{
+  "name": "الدليل التفاعلي المصور والمسموع — SWOT vs TOWS vs SPACE Matrix",
+  "description": "عرض تفاعلي مصور ومسموع باللغة العربية يشرح منهجية التحليل الاستراتيجي SWOT ومصفوفة المناورة TOWS وبوصلة الأرقام SPACE Matrix بناءً على دليل أحمد الخالدي.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+:root {
+  --bg-navy: #091221;
+  --surface-navy: #101E34;
+  --surface-elevated: #162742;
+  --gold-primary: #D4AF37;
+  --gold-bright: #E8C864;
+  --ink-primary: #F7F3EA;
+  --ink-secondary: #CBD5E1;
+  --ink-muted: #94A3B8;
+  --rule-gold: rgba(212, 175, 55, 0.24);
+  --rule-slate: rgba(148, 163, 184, 0.18);
+
+  --font-display: 'Cairo', system-ui, sans-serif;
+  --font-body: 'IBM Plex Sans Arabic', 'Cairo', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--bg-navy);
+  color: var(--ink-primary);
+  font-family: var(--font-body);
+  direction: rtl;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  text-wrap: balance;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Synchronized 3-State Narration Paragraphs */
+.narration-turn {
+  transition: opacity 180ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 180ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.narration-turn-active {
+  background-color: rgba(212, 175, 55, 0.1);
+  border-color: rgba(212, 175, 55, 0.55);
+  opacity: 1;
+}
+
+.narration-turn-past {
+  background-color: rgba(15, 29, 51, 0.45);
+  border-color: rgba(148, 163, 184, 0.14);
+  opacity: 0.68;
+}
+
+.narration-turn-future {
+  background-color: rgba(15, 29, 51, 0.3);
+  border-color: rgba(148, 163, 184, 0.12);
+  opacity: 0.52;
+}
+
+.narration-turn:hover {
+  opacity: 1;
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+/* Subtle Slide Fade-In Transition */
+@keyframes slideStageReveal {
+  0% {
+    opacity: 0.35;
+    transform: scale(0.992);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.slide-stage-reveal {
+  animation: slideStageReveal 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Accessible Range Slider for SPACE Matrix */
+.executive-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.25);
+  outline: none;
+  cursor: pointer;
+}
+
+.executive-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #D4AF37;
+  border: 2px solid #091221;
+  cursor: pointer;
+  transition: transform 150ms ease;
+}
+
+.executive-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.12);
+}
+
+.executive-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #D4AF37;
+  border: 2px solid #091221;
+  cursor: pointer;
+}
+
+/* Custom sleek scrollbar for slide filmstrip and narration panel */
+.thin-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.thin-scrollbar::-webkit-scrollbar-track {
+  background: rgba(9, 18, 33, 0.5);
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.3);
+  border-radius: 3px;
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.55);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide-stage-reveal {
+    animation: none;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}
